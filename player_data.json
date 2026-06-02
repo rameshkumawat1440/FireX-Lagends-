@@ -1,0 +1,24 @@
+{
+  "uid": "FXL00000001",
+  "name": "Guest",
+  "gender": "Male",
+  "level": 1,
+  "xp": 0,
+  "rank": "Bronze",
+  "coins": 1000,
+  "emeralds": 0,
+  "hp": 200,
+  "ep": 100,
+  "likes": 0,
+  "kills": 0,
+  "damage": 0,
+  "wins": 0,
+  "friends": [],
+  "inventory": {
+    "characters": [],
+    "vehicles": [],
+    "gunskins": [],
+    "emotes": [],
+    "parachutes": []
+  }
+}
