@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+button{
+width:250px;
+height:50px;
+margin:10px;
+font-size:18px;
+}
+</style>
+</head>
+<body>
+
+<h1>FireX Legends</h1>
+
+<button onclick="guestLogin()">
+Guest Login
+</button>
+
+<button>
+Google Login
+</button>
+
+<button>
+Facebook Login
+</button>
+
+<script>
+function guestLogin(){
+
+localStorage.setItem(
+"playerName",
+"Guest"
+);
+
+window.location=
+"character.html";
+
+}
+</script>
+
+</body>
+</html>
