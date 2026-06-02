@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html>
+<head>
 <meta charset="UTF-8">
-<title>FireX Legends</title>
-<#rotateMessage{
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FireX Legends</title><style>
+
+#rotateMessage{
     display:none;
     position:fixed;
     top:0;
@@ -29,10 +30,9 @@
         display:none;
     }
 
-}>
-body{<div id="rotateMessage">
-    Please rotate your device to Landscape Mode
-</div>
+}
+
+body{
 margin:0;
 background:black;
 color:white;
@@ -43,38 +43,32 @@ align-items:center;
 height:100vh;
 flex-direction:column;
 }
+
 .bar{
 width:300px;
 height:20px;
 border:1px solid white;
 }
+
 .fill{
 height:100%;
 width:0%;
 background:lime;
 animation:load 5s linear forwards;
 }
+
 @keyframes load{
 from{width:0%;}
 to{width:100%;}
 }
-</style>
-</head>
-<body>
 
-<h1>FIREX LEGENDS</h1>
-
-<div class="bar">
+</style></head><body><div id="rotateMessage">
+Please rotate your device to Landscape Mode
+</div><h1>FIREX LEGENDS</h1><div class="bar">
 <div class="fill"></div>
-</div>
-
-<p>Loading...</p>
-
-<script>
+</div><p>Loading...</p><script>
 setTimeout(()=>{
 window.location="login.html";
 },5000);
-</script>
-
-</body>
+</script></body>
 </html>
