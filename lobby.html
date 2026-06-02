@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lobby</title>
+<style>
+body{
+background:#202020;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+button{
+width:250px;
+height:60px;
+margin:10px;
+font-size:20px;
+}
+</style>
+</head>
+<body>
+
+<h1>FireX Legends Lobby</h1>
+
+<div id="info"></div>
+
+<button>Play</button>
+
+<button>Profile</button>
+
+<button>Friends</button>
+
+<button>Events</button>
+
+<button>Collection</button>
+
+<button>Shop</button>
+
+<script>
+
+let player=
+JSON.parse(
+localStorage.getItem(
+"player"
+)
+);
+
+document.getElementById(
+"info"
+).innerHTML=
+
+"Name: "+player.name+
+"<br>UID: "+player.uid+
+"<br>Level: "+player.level+
+"<br>Coins: "+player.coins+
+"<br>Emeralds: "+player.emeralds;
+
+</script>
+
+</body>
+</html>
