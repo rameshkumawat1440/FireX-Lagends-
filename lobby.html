@@ -1,33 +1,67 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
-<title>Lobby</title>
-<style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FireX Legends Lobby</title><style>
 body{
+margin:0;
 background:#202020;
 color:white;
 font-family:Arial;
-text-align:center;
 }
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#111;
+}
+
+.profileBtn{
+padding:10px 15px;
+background:#333;
+border-radius:10px;
+cursor:pointer;
+}
+
+.currency{
+font-size:18px;
+}
+
+.main{
+text-align:center;
+padding-top:20px;
+}
+
+#info{
+font-size:20px;
+margin-bottom:20px;
+}
+
 button{
 width:250px;
 height:60px;
 margin:10px;
 font-size:20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
-</style>
-</head>
-<body>
 
-<h1>FireX Legends Lobby</h1>
+.playBtn{
+font-size:24px;
+font-weight:bold;
+}
+</style></head><body><div class="topbar"><div class="profileBtn" onclick="openProfile()">
+PROFILE
+</div><div class="currency">
+🪙 <span id="coins">1000</span>
+&nbsp;&nbsp;
+💎 <span id="emeralds">0</span>
+</div></div><div class="main"><h1>FireX Legends Lobby</h1><div id="info"></div><button class="playBtn">PLAY</button>
 
-<div id="info"></div>
-
-<button>Play</button>
-
-<button>Profile</button>
-
-<button>Friends</button>
+<br><button>Friends</button>
 
 <button>Events</button>
 
@@ -35,26 +69,35 @@ font-size:20px;
 
 <button>Shop</button>
 
-<script>
+</div><script>
 
-let player=
-JSON.parse(
-localStorage.getItem(
-"player"
-)
-);
+let player =
+JSON.parse(localStorage.getItem("player"));
 
-document.getElementById(
-"info"
-).innerHTML=
+if(!player){
+player = {
+name:"Guest Player",
+uid:localStorage.getItem("playerUID") || "FX000000",
+level:1,
+coins:1000,
+emeralds:0
+};
+}
 
-"Name: "+player.name+
-"<br>UID: "+player.uid+
-"<br>Level: "+player.level+
-"<br>Coins: "+player.coins+
-"<br>Emeralds: "+player.emeralds;
+document.getElementById("info").innerHTML =
+"Name: " + player.name +
+"<br>UID: " + player.uid +
+"<br>Level: " + player.level;
 
-</script>
+document.getElementById("coins").innerText =
+player.coins;
 
-</body>
+document.getElementById("emeralds").innerText =
+player.emeralds;
+
+function openProfile(){
+window.location.href="profile.html";
+}
+
+</script></body>
 </html>
