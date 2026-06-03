@@ -1,7 +1,12 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FIREX LEGENDS Lobby</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FIREX LEGENDS</title>
+
+<style>
 
 *{
 margin:0;
@@ -10,12 +15,16 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-body{
-width:100vw;
-height:100vh;
+html,body{
+width:100%;
+height:100%;
 overflow:hidden;
+}
+
+body{
 
 background:url("assets/file_00000000721071fd8b660d0a7042064c.png");
+
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -23,7 +32,7 @@ background-repeat:no-repeat;
 color:white;
 }
 
-/* DARK OVERLAY */
+/* Overlay */
 
 .overlay{
 position:absolute;
@@ -31,19 +40,22 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,0.15);
 }
 
-/* PROFILE */
+/* Profile */
 
 .profile{
+
 position:absolute;
+
 top:15px;
+
 left:15px;
 
-background:rgba(0,0,0,.55);
+background:rgba(0,0,0,0.55);
 
-padding:12px 18px;
+padding:12px 15px;
 
 border-radius:12px;
 
@@ -53,74 +65,87 @@ min-width:220px;
 }
 
 .profileName{
-font-size:22px;
+
+font-size:20px;
+
 font-weight:bold;
 }
 
 .profileUID{
-font-size:13px;
-margin-top:3px;
+
+font-size:12px;
+
+margin-top:4px;
 }
 
 .profileLevel{
-font-size:13px;
-margin-top:3px;
+
+font-size:12px;
+
+margin-top:4px;
 }
 
-/* TOP RIGHT */
+/* Currency */
 
-.rankPanel{
+.currency{
+
 position:absolute;
+
 top:15px;
+
 right:15px;
 
 display:flex;
-align-items:center;
 
 gap:12px;
 
 z-index:10;
 }
 
-.rankMode{
-background:rgba(0,0,0,.65);
+.currencyBox{
 
-padding:12px 20px;
+background:rgba(0,0,0,0.55);
+
+padding:10px 16px;
 
 border-radius:12px;
-
-font-weight:bold;
 
 font-size:18px;
-}
-
-.startBtn{
-
-width:220px;
-height:65px;
-
-border:none;
-
-border-radius:12px;
-
-background:#ffd000;
-
-color:black;
-
-font-size:26px;
 
 font-weight:bold;
-
-cursor:pointer;
 }
 
-/* LEFT SIDE */
+/* Character */
+
+.character{
+
+position:absolute;
+
+left:50%;
+
+bottom:0;
+
+transform:translateX(-50%);
+
+height:82%;
+
+z-index:5;
+}
+
+.character img{
+
+height:100%;
+
+object-fit:contain;
+}
+
+/* Left Icons */
 
 .leftMenu{
 
 position:absolute;
 
-left:15px;
+left:20px;
 
 top:50%;
 
@@ -135,12 +160,13 @@ gap:12px;
 z-index:10;
 }
 
-.leftItem{
+.leftBtn{
 
 width:70px;
+
 height:70px;
 
-background:rgba(0,0,0,.55);
+background:rgba(0,0,0,0.55);
 
 border-radius:12px;
 
@@ -150,18 +176,22 @@ align-items:center;
 
 justify-content:center;
 
-font-size:30px;
+font-size:14px;
+
+font-weight:bold;
+
+text-align:center;
 
 cursor:pointer;
 }
 
-/* RIGHT SIDE */
+/* Right Menu */
 
 .rightMenu{
 
 position:absolute;
 
-right:15px;
+right:20px;
 
 top:50%;
 
@@ -178,132 +208,226 @@ z-index:10;
 
 .menuBtn{
 
-width:190px;
+width:180px;
 
 height:52px;
 
+background:rgba(0,0,0,0.60);
+
 border:none;
 
-border-radius:10px;
-
-background:rgba(0,0,0,.65);
+border-radius:12px;
 
 color:white;
+
+font-size:15px;
 
 font-weight:bold;
 
 cursor:pointer;
 }
 
-/* CHARACTER */
+/* Bottom Right */
 
-.hero{
-
-position:absolute;
-
-left:50%;
-
-bottom:25px;
-
-transform:translateX(-50%);
-
-height:78%;
-
-z-index:5;
-}
-
-.hero img{
-
-height:100%;
-
-object-fit:contain;
-}
-
-/* BOTTOM RIGHT */
-
-.currency{
+.bottomPanel{
 
 position:absolute;
 
-right:15px;
+right:20px;
 
-bottom:15px;
+bottom:20px;
 
-background:rgba(0,0,0,.65);
+display:flex;
 
-padding:12px 18px;
+flex-direction:column;
 
-border-radius:12px;
+align-items:flex-end;
 
-font-size:18px;
+gap:12px;
 
 z-index:10;
 }
 
-/* MOBILE */
+.rankBox{
+
+background:rgba(0,0,0,0.60);
+
+padding:12px 20px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+font-size:18px;
+}
+
+.startBtn{
+
+width:220px;
+
+height:70px;
+
+border:none;
+
+border-radius:14px;
+
+background:#ffd000;
+
+font-size:28px;
+
+font-weight:bold;
+
+color:black;
+
+cursor:pointer;
+}
+  /* Responsive */
 
 @media(max-width:900px){
 
-.hero{
-height:68%;
+.character{
+height:72%;
 }
 
 .menuBtn{
-width:150px;
+width:140px;
 font-size:12px;
 }
 
 .startBtn{
-width:160px;
-height:55px;
-font-size:20px;
+width:180px;
+height:60px;
+font-size:22px;
 }
 
-.rankMode{
-font-size:14px;
+.leftBtn{
+width:60px;
+height:60px;
+font-size:12px;
 }
 
 }
 
 </style>
-</head><body><div class="overlay"></div><!-- PROFILE --><div class="profile"><div id="playerName" class="profileName">
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+<div id="playerName" class="profileName">
 Guest Player
-</div><div id="playerUID" class="profileUID">
-UID: FXL000000
-</div><div id="playerLevel" class="profileLevel">
-Level: 1
-</div></div><!-- TOP RIGHT --><div class="rankPanel"><div class="rankMode">
-F-RANKED
-</div><button class="startBtn">
-START
-</button></div><!-- LEFT MENU --><div class="leftMenu"><div class="leftItem">🎁</div><div class="leftItem">🏆</div><div class="leftItem">📨</div><div class="leftItem">⚙️</div></div><!-- RIGHT MENU --><div class="rightMenu"><button class="menuBtn">
+</div>
+
+<div id="playerUID" class="profileUID">
+UID : FXL000000
+</div>
+
+<div id="playerLevel" class="profileLevel">
+Level : 1
+</div>
+
+</div>
+
+<!-- CURRENCY -->
+
+<div class="currency">
+
+<div class="currencyBox">
+🪙 <span id="coins">1000</span>
+</div>
+
+<div class="currencyBox">
+🟢 <span id="emeralds">0</span>
+</div>
+
+</div>
+
+<!-- LEFT SIDE -->
+
+<div class="leftMenu">
+
+<div class="leftBtn">
+EVENTS
+</div>
+
+<div class="leftBtn">
+MAIL
+</div>
+
+<div class="leftBtn">
+REWARD
+</div>
+
+<div class="leftBtn">
+SETTINGS
+</div>
+
+</div>
+
+<!-- CHARACTER -->
+
+<div class="character">
+
+<img
+src="assets/1000084836-removebg-preview.png"
+alt="Character">
+
+</div>
+
+<!-- RIGHT MENU -->
+
+<div class="rightMenu">
+
+<button class="menuBtn">
 STORE
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 LUCK ROYALE
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 CHARACTER
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 VAULT
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 PET
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 WEAPON
-</button><button class="menuBtn">
+</button>
+
+<button class="menuBtn">
 COLLECTION
-</button></div><!-- CHARACTER --><div class="hero"><img
-src="assets/1000084836-removebg-preview.png">
+</button>
 
-</div><!-- CURRENCY --><div class="currency">🪙 <span id="coins">
-1000
-</span>
+</div>
 
-  
+<!-- START PANEL -->
 
-🟢 <span id="emeralds">
-0
-</span>
+<div class="bottomPanel">
 
-</div><script>
+<div class="rankBox">
+F-RANKED
+</div>
+
+<button class="startBtn">
+START
+</button>
+
+</div>
+
+<script>
 
 let player =
 JSON.parse(
@@ -314,7 +438,7 @@ if(!player){
 
 player = {
 
-name:"Guest Player",
+name:"REX RAMA",
 
 uid:"FXL000000",
 
@@ -331,27 +455,39 @@ emeralds:0
 document.getElementById(
 "playerName"
 ).innerText =
-player.name;
+player.name || "REX RAMA";
 
 document.getElementById(
 "playerUID"
 ).innerText =
-"UID: " + player.uid;
+"UID : " + player.uid;
 
 document.getElementById(
 "playerLevel"
 ).innerText =
-"Level: " + player.level;
+"Level : " + player.level;
 
 document.getElementById(
 "coins"
 ).innerText =
-player.coins;
+player.coins || 1000;
 
 document.getElementById(
 "emeralds"
 ).innerText =
-player.emeralds;
+player.emeralds || 0;
 
-</script></body>
+document.querySelector(
+".startBtn"
+).onclick = function(){
+
+alert(
+"Matchmaking Coming Soon"
+);
+
+};
+
+</script>
+
+</body>
 </html>
