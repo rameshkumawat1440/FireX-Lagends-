@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FireX Legends Lobby</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+width:100vw;
+height:100vh;
+overflow:hidden;
+
+background:url("assets/file_00000000721071fd8b660d0a7042064c.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+color:white;
+position:relative;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.18);
+}
+
+.profile{
+position:absolute;
+top:15px;
+left:15px;
+z-index:5;
+
+background:rgba(0,0,0,.45);
+padding:10px 15px;
+border-radius:12px;
+}
+
+.name{
+font-size:20px;
+font-weight:bold;
+}
+
+.uid{
+font-size:12px;
+opacity:.8;
+}
+
+.level{
+font-size:14px;
+color:gold;
+}
+
+.currency{
+position:absolute;
+top:15px;
+left:50%;
+transform:translateX(-50%);
+
+display:flex;
+gap:20px;
+
+background:rgba(0,0,0,.45);
+
+padding:10px 18px;
+border-radius:15px;
+
+z-index:5;
+}
+
+.currency div{
+font-size:18px;
+font-weight:bold;
+}
+
+.leftMenu{
+position:absolute;
+left:15px;
+top:120px;
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+z-index:5;
+}
+
+.rightMenu{
+position:absolute;
+right:15px;
+top:120px;
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+z-index:5;
+}
+
+.menuIcon{
+width:60px;
+height:60px;
+
+background:rgba(0,0,0,.45);
+
+border-radius:14px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.menuIcon img{
+width:36px;
+height:36px;
+object-fit:contain;
+}
+
+.character{
+position:absolute;
+bottom:0;
+left:50%;
+
+transform:translateX(-50%);
+
+z-index:3;
+}
+
+.character img{
+height:78vh;
+max-height:650px;
+}
+.modeBox{
+position:absolute;
+
+right:30px;
+bottom:170px;
+
+display:flex;
+gap:8px;
+
+z-index:5;
+}
+
+.modeBtn{
+padding:10px 18px;
+
+background:rgba(0,0,0,.55);
+
+border-radius:10px;
+
+font-weight:bold;
+cursor:pointer;
+}
+
+.active{
+background:#ffc400;
+color:black;
+}
+
+.mapBox{
+position:absolute;
+
+right:30px;
+bottom:115px;
+
+background:rgba(0,0,0,.55);
+
+padding:12px 20px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+z-index:5;
+}
+
+.startBtn{
+position:absolute;
+
+right:30px;
+bottom:25px;
+
+width:220px;
+height:75px;
+
+border:none;
+
+background:#ffc400;
+
+font-size:34px;
+font-weight:bold;
+
+border-radius:15px;
+
+cursor:pointer;
+
+z-index:5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="profile">
+
+<div class="name" id="playerName">Rex Rama</div>
+
+<div class="uid" id="playerUID">
+UID: FXL000000
+</div>
+
+<div class="level">
+⭐ Lv.<span id="playerLevel">1</span>
+</div>
+
+</div>
+
+<div class="currency">
+
+<div>
+🪙 <span id="coins">1000</span>
+</div>
+
+<div>
+🟢 <span id="emeralds">0</span>
+</div>
+
+</div>
+
+<div class="leftMenu">
+
+<div class="menuIcon">
+<img src="assets/store.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/luckroyale.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/events.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/collection.png.jpg">
+</div>
+
+</div>
+
+<div class="rightMenu">
+
+<div class="menuIcon">
+<img src="assets/mail.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/pet.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/weapon.png.jpg">
+</div>
+
+<div class="menuIcon">
+<img src="assets/settings.jpg">
+</div>
+
+</div>
+
+<div class="character">
+<img src="assets/1000084836-removebg-preview.png">
+</div>
+
+<div class="modeBox">
+
+<div class="modeBtn active">
+SOLO
+</div>
+
+<div class="modeBtn">
+DUO
+</div>
+
+<div class="modeBtn">
+SQUAD
+</div>
+
+</div>
+
+<div class="mapBox">
+F-RANKED
+</div>
+
+<button class="startBtn">
+START
+</button>
+
+<script>
+
+let player =
+JSON.parse(localStorage.getItem("player"));
+
+if(player){
+
+document.getElementById("playerName")
+.innerText = player.name;
+
+document.getElementById("playerUID")
+.innerText = "UID: " + player.uid;
+
+document.getElementById("playerLevel")
+.innerText = player.level;
+
+document.getElementById("coins")
+.innerText = player.coins;
+
+document.getElementById("emeralds")
+.innerText = player.emeralds;
+
+}
+
+</script>
+
+</body>
+</html>
