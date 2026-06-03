@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FIREX LEGENDS</title>
+<title>FireX Legends Lobby</title>
 
 <style>
 
@@ -15,24 +15,17 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-html,body{
-width:100%;
-height:100%;
-overflow:hidden;
-}
-
 body{
+width:100vw;
+height:100vh;
+overflow:hidden;
+color:white;
 
-background:url("assets/file_00000000721071fd8b660d0a7042064c.png");
-
+background:url("assets/lobby-bg.png");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-
-color:white;
 }
-
-/* Overlay */
 
 .overlay{
 position:absolute;
@@ -43,269 +36,215 @@ height:100%;
 background:rgba(0,0,0,0.15);
 }
 
-/* Profile */
+/* PROFILE */
 
 .profile{
-
 position:absolute;
-
 top:15px;
-
 left:15px;
 
-background:rgba(0,0,0,0.55);
+width:260px;
+height:95px;
 
-padding:12px 15px;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
 
-border-radius:12px;
-
-z-index:10;
-
-min-width:220px;
-}
-
-.profileName{
-
-font-size:20px;
-
-font-weight:bold;
-}
-
-.profileUID{
-
-font-size:12px;
-
-margin-top:4px;
-}
-
-.profileLevel{
-
-font-size:12px;
-
-margin-top:4px;
-}
-
-/* Currency */
-
-.currency{
-
-position:absolute;
-
-top:15px;
-
-right:15px;
+border-radius:15px;
 
 display:flex;
+align-items:center;
 
-gap:12px;
-
+padding:10px;
 z-index:10;
 }
 
-.currencyBox{
+.profile img{
+width:70px;
+height:70px;
+border-radius:10px;
+object-fit:cover;
+}
 
-background:rgba(0,0,0,0.55);
+.player-info{
+margin-left:10px;
+}
 
-padding:10px 16px;
-
-border-radius:12px;
-
-font-size:18px;
-
+.player-name{
+font-size:22px;
 font-weight:bold;
 }
 
-/* Character */
+.player-uid{
+font-size:13px;
+opacity:.8;
+}
+
+.player-level{
+font-size:15px;
+margin-top:4px;
+}
+
+/* CHARACTER */
 
 .character{
-
 position:absolute;
-
 left:50%;
-
-bottom:0;
-
+bottom:60px;
 transform:translateX(-50%);
-
-height:82%;
-
 z-index:5;
 }
 
 .character img{
-
-height:100%;
-
-object-fit:contain;
+height:75vh;
+max-height:650px;
 }
 
-/* Left Icons */
+/* LEFT MENU */
 
-.leftMenu{
-
+.left-menu{
 position:absolute;
-
-left:20px;
-
-top:50%;
-
-transform:translateY(-50%);
+right:15px;
+top:120px;
 
 display:flex;
-
 flex-direction:column;
-
 gap:12px;
 
 z-index:10;
 }
 
-.leftBtn{
-
-width:70px;
-
-height:70px;
+.menu-btn{
+width:220px;
+height:58px;
 
 background:rgba(0,0,0,0.55);
 
 border-radius:12px;
 
 display:flex;
-
 align-items:center;
 
-justify-content:center;
+padding-left:15px;
 
-font-size:14px;
-
+font-size:20px;
 font-weight:bold;
-
-text-align:center;
-
-cursor:pointer;
 }
 
-/* Right Menu */
+.menu-btn img{
+width:34px;
+height:34px;
+margin-right:12px;
+}
 
-.rightMenu{
+/* RIGHT ICONS */
 
+.right-icons{
 position:absolute;
-
-right:20px;
-
-top:50%;
-
-transform:translateY(-50%);
+left:15px;
+bottom:20px;
 
 display:flex;
-
 flex-direction:column;
-
 gap:10px;
 
 z-index:10;
 }
 
-.menuBtn{
+.icon-box{
+width:70px;
+height:70px;
 
-width:180px;
+background:rgba(0,0,0,0.55);
 
-height:52px;
-
-background:rgba(0,0,0,0.60);
-
-border:none;
-
-border-radius:12px;
-
-color:white;
-
-font-size:15px;
-
-font-weight:bold;
-
-cursor:pointer;
-}
-
-/* Bottom Right */
-
-.bottomPanel{
-
-position:absolute;
-
-right:20px;
-
-bottom:20px;
+border-radius:15px;
 
 display:flex;
+justify-content:center;
+align-items:center;
+}
 
-flex-direction:column;
+.icon-box img{
+width:42px;
+height:42px;
+}
 
-align-items:flex-end;
+/* MAP */
 
-gap:12px;
+.map-box{
+position:absolute;
+top:20px;
+right:270px;
+
+width:200px;
+height:70px;
+
+background:rgba(0,0,0,0.55);
+
+border-radius:15px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+font-weight:bold;
 
 z-index:10;
 }
 
-.rankBox{
+/* BOTTOM BAR */
 
-background:rgba(0,0,0,0.60);
+.bottom-bar{
+position:absolute;
+top:20px;
+right:20px;
+
+display:flex;
+align-items:center;
+gap:20px;
+
+background:rgba(0,0,0,0.55);
 
 padding:12px 20px;
 
-border-radius:12px;
+border-radius:15px;
 
-font-weight:bold;
-
-font-size:18px;
+z-index:10;
 }
 
-.startBtn{
+.currency{
+font-size:24px;
+font-weight:bold;
+}
 
-width:220px;
+/* START BUTTON */
 
-height:70px;
+.start-btn{
+position:absolute;
+right:20px;
+bottom:25px;
+
+width:280px;
+height:90px;
 
 border:none;
 
-border-radius:14px;
+border-radius:18px;
 
-background:#ffd000;
-
-font-size:28px;
-
-font-weight:bold;
+background:#f2b400;
 
 color:black;
 
+font-size:40px;
+font-weight:bold;
+
 cursor:pointer;
-}
-  /* Responsive */
 
-@media(max-width:900px){
-
-.character{
-height:72%;
+z-index:20;
 }
 
-.menuBtn{
-width:140px;
-font-size:12px;
-}
-
-.startBtn{
-width:180px;
-height:60px;
-font-size:22px;
-}
-
-.leftBtn{
-width:60px;
-height:60px;
-font-size:12px;
-}
-
+.start-btn:hover{
+transform:scale(1.03);
 }
 
 </style>
@@ -315,130 +254,196 @@ font-size:12px;
 
 <div class="overlay"></div>
 
-<!-- PROFILE -->
-
 <div class="profile">
 
-<div id="playerName" class="profileName">
-Guest Player
+<img src="assets/Name.png">
+
+<div class="player-info">
+
+<div class="player-name" id="playerName">
+Player
 </div>
 
-<div id="playerUID" class="profileUID">
-UID : FXL000000
+<div class="player-uid" id="playerUID">
+UID
 </div>
 
-<div id="playerLevel" class="profileLevel">
-Level : 1
+<div class="player-level">
+⭐ Lv. <span id="playerLevel">1</span>
 </div>
 
 </div>
 
-<!-- CURRENCY -->
+</div>
 
+<div class="character">
+
+<img src="assets/rex-rama.png">
+
+</div>
+
+<div class="left-menu">
+
+<div class="menu-btn">
+<img src="assets/store.png">
+STORE
+</div>
+
+<div class="menu-btn">
+<img src="assets/luckroyale.png">
+LUCK ROYALE
+</div>
+
+<div class="menu-btn">
+<img src="assets/character.png">
+CHARACTER
+</div>
+
+<div class="menu-btn">
+<img src="assets/vault.png">
+VAULT
+</div>
+
+<div class="menu-btn">
+<img src="assets/pet.png">
+PET
+</div>
+
+<div class="menu-btn">
+<img src="assets/weapon.png">
+WEAPON
+</div>
+
+<div class="menu-btn">
+<img src="assets/collection.png">
+COLLECTION
+</div>
+
+</div>
+</style>
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="overlay"></div>
+
+<!-- TOP LEFT PROFILE -->
+<div class="profile-box" onclick="openProfile()">
+
+<div class="profile-name" id="playerName">
+Rex Rama
+</div>
+
+<div class="uid" id="playerUID">
+UID: FXL000000
+</div>
+
+<div class="level">
+Lv. <span id="playerLevel">1</span>
+</div>
+
+</div>
+
+<!-- TOP CENTER LOGO -->
+<div class="logo">
+FIREX LEGENDS
+</div>
+
+<!-- TOP RIGHT CURRENCY -->
 <div class="currency">
 
-<div class="currencyBox">
+<div class="currency-item">
 🪙 <span id="coins">1000</span>
 </div>
 
-<div class="currencyBox">
+<div class="currency-item">
 🟢 <span id="emeralds">0</span>
 </div>
 
 </div>
 
-<!-- LEFT SIDE -->
+<!-- LEFT SIDE MENU -->
+<div class="left-menu">
 
-<div class="leftMenu">
-
-<div class="leftBtn">
-EVENTS
+<div class="menu-btn">
+<img src="assets/store.png.jpg">
+<span>STORE</span>
 </div>
 
-<div class="leftBtn">
-MAIL
+<div class="menu-btn">
+<img src="assets/luckroyale.png.jpg">
+<span>LUCK ROYALE</span>
 </div>
 
-<div class="leftBtn">
-REWARD
+<div class="menu-btn">
+<img src="assets/collection.png.jpg">
+<span>COLLECTION</span>
 </div>
 
-<div class="leftBtn">
-SETTINGS
+<div class="menu-btn">
+<img src="assets/events.png.jpg">
+<span>EVENTS</span>
 </div>
 
 </div>
 
 <!-- CHARACTER -->
-
 <div class="character">
 
-<img
-src="assets/1000084836-removebg-preview.png"
-alt="Character">
+<img src="assets/1000084836-removebg-preview.png">
 
 </div>
 
-<!-- RIGHT MENU -->
+<!-- RIGHT SIDE MENU -->
+<div class="right-menu">
 
-<div class="rightMenu">
+<div class="icon-btn">
+<img src="assets/mail.png.jpg">
+</div>
 
-<button class="menuBtn">
-STORE
-</button>
+<div class="icon-btn">
+<img src="assets/pet.png.jpg">
+</div>
 
-<button class="menuBtn">
-LUCK ROYALE
-</button>
+<div class="icon-btn">
+<img src="assets/weapon.png.jpg">
+</div>
 
-<button class="menuBtn">
-CHARACTER
-</button>
-
-<button class="menuBtn">
-VAULT
-</button>
-
-<button class="menuBtn">
-PET
-</button>
-
-<button class="menuBtn">
-WEAPON
-</button>
-
-<button class="menuBtn">
-COLLECTION
-</button>
+<div class="icon-btn">
+<img src="assets/settings.jpg">
+</div>
 
 </div>
 
-<!-- START PANEL -->
+<!-- MAP SELECT -->
+<div class="map-box">
 
-<div class="bottomPanel">
+<div class="map-title">
+MAP
+</div>
 
-<div class="rankBox">
+<div class="map-name">
 F-RANKED
 </div>
 
-<button class="startBtn">
+</div>
+
+<!-- START BUTTON -->
+<button class="start-btn">
 START
 </button>
-
-</div>
 
 <script>
 
 let player =
-JSON.parse(
-localStorage.getItem("player")
-);
+JSON.parse(localStorage.getItem("player"));
 
 if(!player){
 
 player = {
 
-name:"REX RAMA",
+name:"Rex Rama",
 
 uid:"FXL000000",
 
@@ -452,38 +457,32 @@ emeralds:0
 
 }
 
-document.getElementById(
-"playerName"
-).innerText =
-player.name || "REX RAMA";
+document.getElementById("playerName")
+.innerText = player.name;
 
-document.getElementById(
-"playerUID"
-).innerText =
-"UID : " + player.uid;
+document.getElementById("playerUID")
+.innerText = "UID: " + player.uid;
 
-document.getElementById(
-"playerLevel"
-).innerText =
-"Level : " + player.level;
+document.getElementById("playerLevel")
+.innerText = player.level;
 
-document.getElementById(
-"coins"
-).innerText =
-player.coins || 1000;
+document.getElementById("coins")
+.innerText = player.coins;
 
-document.getElementById(
-"emeralds"
-).innerText =
-player.emeralds || 0;
+document.getElementById("emeralds")
+.innerText = player.emeralds;
 
-document.querySelector(
-".startBtn"
-).onclick = function(){
+function openProfile(){
 
-alert(
-"Matchmaking Coming Soon"
-);
+window.location.href =
+"profile.html";
+
+}
+
+document.querySelector(".start-btn")
+.onclick = function(){
+
+alert("Matchmaking Coming Soon");
 
 };
 
